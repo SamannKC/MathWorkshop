@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
+from matplotlib.patches import Circle , Ellipse
 import numpy as np
 import math
 import random
 
 def run_task():
-    Exercise8()
+    Exercise12()
 
 def task1():
     x_cord = np.array([1, 50])
@@ -137,6 +138,56 @@ def Exercise8():
     plt.show()
 
 def Exercise9():
-    pass
+    x, y = [], []
+
+    start = -3 * math.pi
+    end = 3 * math.pi
+    step = 0.1
+
+    i = start
+    while i <= end:
+        x.append(i)
+        y.append(math.cos(i))
+        i += step
+
+    plt.plot(x,y, color = "red", label = "sin function")
+    plt.xlabel("X")
+    plt.ylabel("Y")
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+def Exercise10_11():
+    Center = (2,2)
+    r = 4
+
+    fig, ax = plt.subplots()
+
+    circle = Circle((2, 2), radius=r, color='skyblue', edgecolor='blue', linewidth=2)
+
+    ellipse = Ellipse(Center, 4, 10, angle = 90, edgecolor = 'r', facecolor = 'none', lw = 2)
+
+    ax.add_patch(circle)
+    ax.add_patch(ellipse)
+
+    ax.set_xlim(-10, 10)
+    ax.set_ylim(-10, 10)
+    ax.set_aspect('equal')
+
+    plt.grid(True, linestyle='--')
+
+    plt.show()
+
+def Exercise12():
+    p , q , a = 4 , 2, 0.1
+
+    x = [i for i in range(-20, 25)]
+    y = []
+    for val in x:
+        y_val = 4*a*(val - q)**2 + p
+        y.append(y_val)
+
+    plt.plot(x, y)
+    plt.show()
 
 run_task()
