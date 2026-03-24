@@ -5,6 +5,7 @@ import math
 import random
 
 def run_task():
+    #RUNNING
     Exercise12()
 
 def task1():
